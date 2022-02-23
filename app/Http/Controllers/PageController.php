@@ -14,5 +14,18 @@ class PageController extends Controller
         $this->api = config('star-wars.api');
     }
 
+    public function index(){
+        return Inertia::render('Dashboard', [
+            "api" => $this->api,
+        ]);
+    }
+
+    public function show($id){
+        
+        return Inertia::render('Film', [
+            "api" => $this->api,
+            "movieId" => $id,
+        ]);
+    }
     
 }
